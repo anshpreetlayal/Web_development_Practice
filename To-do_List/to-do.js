@@ -14,4 +14,20 @@ export default function App() {
     }
   };
 
-  
+  return (
+    <View>
+      <Text>My To-Do List</Text>
+      <TextInput
+        placeholder="Enter a task"
+        value={task}
+        onChangeText={(text) => setTask(text)}
+      />
+      <Button title="Add Task" onPress={addTask} />
+      <FlatList
+        data={tasks}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => <Text>{item}</Text>}
+      />
+    </View>
+  );
+}
